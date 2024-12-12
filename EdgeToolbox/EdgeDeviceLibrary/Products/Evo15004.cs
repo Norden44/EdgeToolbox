@@ -26,7 +26,7 @@ namespace EdgeDeviceLibrary.Products
 			byte[] data = ms.ToArray();
 			string[] array = GetNullTerminatedString(data, 323).Split('-');
 			string text = array[0] + array[array.Length - 1];
-			if (!text.Contains("."))
+			if (!text.Contains('.'))
 			{
 				text += ".BIN";
 			}

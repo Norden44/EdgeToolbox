@@ -55,7 +55,7 @@ namespace EdgeDeviceLibrary.Products
 				{
 					array2[l].StockCSFileName = Encoding.Default.GetString(array4, l * 20, 16);
 					array2[l].StockCSFileName = array2[l].StockCSFileName.Substring(0, array2[l].StockCSFileName.IndexOf('\0'));
-					array2[l].StockCSChecksum = BitConverter.ToUInt32(array4, l * 20 + 16);
+					array2[l].StockCSChecksum = BitConverter.ToUInt32(array4, (l * 20) + 16);
 				}
 				VerifyChecksumsInStockCS(array2);
 			}

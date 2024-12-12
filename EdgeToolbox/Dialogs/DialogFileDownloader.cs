@@ -1,4 +1,4 @@
-﻿using Common;
+using Common;
 using DarkUI.Forms;
 using Edge.Imaging;
 using EdgeDeviceLibrary;
@@ -16,7 +16,6 @@ using System.Windows.Forms;
 
 namespace EdgeToolbox {
     public partial class DialogFileDownloader : DarkDialog {
-
         Proteus p;
 		private DeviceConnector.ProgressReportEventHandler _progressHandler;
 		private DeviceConnector.ProgressReportEventHandler _overallProgressHandler;

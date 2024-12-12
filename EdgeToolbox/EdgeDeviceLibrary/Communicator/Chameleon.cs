@@ -293,7 +293,7 @@ namespace EdgeDeviceLibrary.Communicator
 					int num3 = 1024 - stringBuilder.Length;
 					if (num3 > 0)
 					{
-						stringBuilder.Append(nextLine.Substring(10, num3));
+						stringBuilder.Append(nextLine.AsSpan(10, num3));
 					}
 					if (stringBuilder.Length < 1024)
 					{
@@ -304,14 +304,14 @@ namespace EdgeDeviceLibrary.Communicator
 					stringBuilder.Insert(0, "S30200" + str);
 					Send_S19_Line(stringBuilder.ToString());
 					stringBuilder = new StringBuilder();
-					stringBuilder.Append(nextLine.Substring(10 + num3, nextLine.Length - 10 - num3 - 2));
+					stringBuilder.Append(nextLine.AsSpan(10 + num3, nextLine.Length - 10 - num3 - 2));
 					num += (uint)(512 - stringBuilder.Length);
 					int percentageComplete2 = (int)((float)startIndex / (float)SendData.Length * 100f);
 					deviceConnector.ReportProgress("Transferring to device...", percentageComplete2 + "% Complete", percentageComplete2);
 				}
 				else
 				{
-					stringBuilder.Append(nextLine.Substring(10, nextLine.Length - 12));
+					stringBuilder.Append(nextLine.AsSpan(10, nextLine.Length - 12));
 				}
 			}
 			if (stringBuilder.Length > 0)
@@ -334,7 +334,7 @@ namespace EdgeDeviceLibrary.Communicator
 			ushort num = 0;
 			ushort num2 = 0;
 			byte[] array = new byte[4];
-			byte[] array2 = new byte[0];
+			byte[] array2 = Array.Empty<byte>();
 			Application.DoEvents();
 			ushort num3 = ushort.Parse(OutData.Substring(1, 1));
 			string text = OutData.Substring(2, 2);
@@ -392,7 +392,7 @@ namespace EdgeDeviceLibrary.Communicator
 				{
 					b4 = (byte)(b4 - 1);
 				}
-				uint num4 = (uint)(b * 65536 + b4 * 256);
+				uint num4 = (uint)((b * 65536) + (b4 * 256));
 				if (num4 % 8192u == 0 && (num4 < 65537 || num4 == 131072 || num4 >= 196608) && SecID == 70 && num4 != ErasedSector)
 				{
 					SectorErase(SecID, num4);
@@ -401,7 +401,7 @@ namespace EdgeDeviceLibrary.Communicator
 				Application.DoEvents();
 				array2 = new byte[num2];
 				int num5 = 0;
-				for (int i = num; i < num2 * 2 + num; i += 2)
+				for (int i = num; i < (num2 * 2) + num; i += 2)
 				{
 					array2[num5] = byte.Parse(OutData.Substring(i, 2), NumberStyles.HexNumber);
 					num5++;

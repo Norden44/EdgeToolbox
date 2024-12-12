@@ -452,7 +452,7 @@ namespace EdgeDeviceLibrary.Communicator {
 			}
 			string[] array = new string[num];
 			uint num2 = 4u;
-			byte[] array2 = new byte[0];
+			byte[] array2 = Array.Empty<byte>();
 			for (int i = 1; i < num + 1; i++) {
 				Application.DoEvents();
 				byte[] bytes = ReadFlash(MemoryLocation.External, num2, 24);
@@ -475,7 +475,7 @@ namespace EdgeDeviceLibrary.Communicator {
 				throw new InvalidDataException("FATCount over 65535, is " + num);
 			}
 			uint num2 = 4u;
-			byte[] array = new byte[0];
+			byte[] array = Array.Empty<byte>();
 			for (int i = 1; i < num + 1; i++) {
 				Application.DoEvents();
 				byte[] array2 = ReadFlash(MemoryLocation.External, num2, 24);
@@ -951,7 +951,7 @@ namespace EdgeDeviceLibrary.Communicator {
 				bootloaderVer = GetBootloaderVersionString();
 			}
 			double result = 0.0;
-			if (bootloaderVer.Length > 0 && bootloaderVer.IndexOf('v') == 0 && bootloaderVer.IndexOf('.') != -1) {
+			if (bootloaderVer.Length > 0 && bootloaderVer.StartsWith('v') && bootloaderVer.IndexOf('.') != -1) {
 				result = Convert.ToDouble(bootloaderVer.Substring(1), CultureInfo.CreateSpecificCulture("en-US"));
 			}
 			return result;
@@ -1079,7 +1079,7 @@ namespace EdgeDeviceLibrary.Communicator {
 		}
 
 		public virtual string[] GetUnsupportedSkus() {
-			return new string[0];
+			return Array.Empty<string>();
 		}
 
 		public virtual bool NeedsGmsk() {

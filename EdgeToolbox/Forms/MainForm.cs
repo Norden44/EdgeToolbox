@@ -1,4 +1,4 @@
-﻿using Common;
+using Common;
 using DarkUI.Forms;
 using DarkUI.Win32;
 using Edge.Common.Math;
@@ -31,7 +31,6 @@ using System.Windows.Forms;
 
 namespace EdgeToolbox {
 	public partial class MainForm : DarkForm {
-
 		Settings settings;
 		DeviceConnector deviceCon;
 		Proteus p;
@@ -297,7 +296,6 @@ namespace EdgeToolbox {
 
 
 		private void dt_Info_Click(object sender, EventArgs e) {
-
 			Cmd_MA_ReadFlash readMainFlash = new Cmd_MA_ReadFlash(false, FlashArea.MainFlash, 0, 9000000);
 			Proteus.Instance()._comm.IssueCommand(Proteus.Instance()._serialNumber, readMainFlash);
 			File.WriteAllBytes($"{AppDomain.CurrentDomain.BaseDirectory}Files/{Proteus.Instance().GetPartNumber(true)}/Bins/MainFlash.bin", readMainFlash.FlashData);

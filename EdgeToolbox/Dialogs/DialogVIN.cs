@@ -1,4 +1,4 @@
-﻿using DarkUI.Forms;
+using DarkUI.Forms;
 using EdgeDeviceLibrary;
 using EdgeDeviceLibrary.Communicator;
 using EdgeToolbox.Classes;
@@ -78,6 +78,5 @@ namespace EdgeToolbox {
 			}
 			return true;
 		}
-
 	}
 }

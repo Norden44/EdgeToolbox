@@ -286,7 +286,7 @@ namespace EdgeDeviceLibrary.Communicator
 			ushort num2 = 0;
 			ushort num3 = 0;
 			byte[] array = new byte[4];
-			byte[] array2 = new byte[0];
+			byte[] array2 = Array.Empty<byte>();
 			Application.DoEvents();
 			ushort num4 = ushort.Parse(OutData.Substring(1, 1));
 			string text = OutData.Substring(2, 2);
@@ -354,7 +354,7 @@ namespace EdgeDeviceLibrary.Communicator
 				{
 					b4 = (byte)(b4 - 1);
 				}
-				uint num5 = (uint)(b * 65536 + b4 * 256);
+				uint num5 = (uint)((b * 65536) + (b4 * 256));
 				if (SecID == 70 && num5 != ErasedSector)
 				{
 					SectorErase(SecID, num5);
@@ -363,7 +363,7 @@ namespace EdgeDeviceLibrary.Communicator
 				Application.DoEvents();
 				array2 = new byte[num3];
 				int num6 = 0;
-				for (int i = num2; i < num3 * 2 + num2; i += 2)
+				for (int i = num2; i < (num3 * 2) + num2; i += 2)
 				{
 					array2[num6] = byte.Parse(OutData.Substring(i, 2), NumberStyles.HexNumber);
 					num6++;
