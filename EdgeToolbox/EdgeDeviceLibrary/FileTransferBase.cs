@@ -86,7 +86,7 @@ namespace EdgeDeviceLibrary
 
 		protected override void OnDoWork(DoWorkEventArgs e)
 		{
-			MaxRequestLength = Math.Max(1L, WebService.GetMaxRequestLength() * 1024 - 2048);
+			MaxRequestLength = Math.Max(1L, (WebService.GetMaxRequestLength() * 1024) - 2048);
 			base.OnDoWork(e);
 		}
 
@@ -102,13 +102,12 @@ namespace EdgeDeviceLibrary
 		}
 
 		public static string CalcFileHash(ref MemoryStream ms)
-		{
-			MD5CryptoServiceProvider mD5CryptoServiceProvider = new MD5CryptoServiceProvider();
-			byte[] value = mD5CryptoServiceProvider.ComputeHash(ms.ToArray());
-			return BitConverter.ToString(value);
-		}
+        {
+            byte[] value = MD5.HashData(ms.ToArray());
+            return BitConverter.ToString(value);
+        }
 
-		protected void CheckLocalFileHash(ref MemoryStream ms)
+        protected void CheckLocalFileHash(ref MemoryStream ms)
 		{
 			LocalFileHash = CalcFileHash(ref ms);
 		}

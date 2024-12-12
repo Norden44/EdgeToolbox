@@ -1,4 +1,4 @@
-﻿using DarkUI.Controls;
+using DarkUI.Controls;
 using DarkUI.Forms;
 using EdgeDeviceLibrary;
 using EdgeDeviceLibrary.Communicator;
@@ -17,7 +17,6 @@ using System.Windows.Forms;
 namespace EdgeToolbox.Forms {
     public partial class UpdateForm : DarkForm {
 		public class UpdateInfo {
-
 			public string id { get; set; }
 			public string type { get; set; }
 			public string version { get; set; }
@@ -90,9 +89,9 @@ namespace EdgeToolbox.Forms {
 				string[] availableFirmwares = AvailableFirmware;
 				for (int i = 0; i < availableFirmwares.Length / 4; i++) {
 					string id = availableFirmwares[i * 4];
-					string type = availableFirmwares[i * 4 + 2];
+					string type = availableFirmwares[(i * 4) + 2];
 					if (id != "0" && type != "0")
-						firmInfo.Add(new UpdateInfo(id, availableFirmwares[i * 4 + 1], type, availableFirmwares[i * 4 + 3]));
+						firmInfo.Add(new UpdateInfo(id, availableFirmwares[(i * 4) + 1], type, availableFirmwares[(i * 4) + 3]));
 				}
 				firmData.DataSource = firmInfo;
 
@@ -100,9 +99,9 @@ namespace EdgeToolbox.Forms {
 				string[] availableCalibrations = AvailableCalibrations;
 				for (int i = 0; i < availableCalibrations.Length / 4; i++) {
 					string id = availableCalibrations[i * 4];
-					string type = availableCalibrations[i * 4 + 2];
+					string type = availableCalibrations[(i * 4) + 2];
 					if (id != "0" && type != "0")
-						calInfo.Add(new UpdateInfo(id, availableCalibrations[i * 4 + 1], type, availableCalibrations[i * 4 + 3]));
+						calInfo.Add(new UpdateInfo(id, availableCalibrations[(i * 4) + 1], type, availableCalibrations[(i * 4) + 3]));
 				}
 				calData.DataSource = calInfo;
 			});

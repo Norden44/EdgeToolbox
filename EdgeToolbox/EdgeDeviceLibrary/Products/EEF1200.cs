@@ -24,7 +24,7 @@ namespace EdgeDeviceLibrary.Products
 			}
 			byte[] bytes = ms.ToArray();
 			string text = Encoding.Default.GetString(bytes).Substring(70, 8);
-			if (!text.Contains("."))
+			if (!text.Contains('.'))
 			{
 				text += ".";
 			}
@@ -36,7 +36,7 @@ namespace EdgeDeviceLibrary.Products
 			};
 			array[0].StockFileName = text;
 			text = Encoding.Default.GetString(bytes).Substring(518, 8);
-			if (!text.Contains("."))
+			if (!text.Contains('.'))
 			{
 				text += ".";
 			}
@@ -61,7 +61,7 @@ namespace EdgeDeviceLibrary.Products
 				{
 					array[j].StockCSFileName = Encoding.Default.GetString(array2, j * 20, 16);
 					array[j].StockCSFileName = array[j].StockCSFileName.Substring(0, array[j].StockCSFileName.IndexOf('\0'));
-					array[j].StockCSChecksum = BitConverter.ToUInt32(array2, j * 20 + 16);
+					array[j].StockCSChecksum = BitConverter.ToUInt32(array2, (j * 20) + 16);
 				}
 				VerifyChecksumsInStockCS(array);
 			}

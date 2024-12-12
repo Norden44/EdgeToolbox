@@ -516,14 +516,14 @@ namespace EdgeDeviceLibrary {
 				}
 				uint num4 = 3337565984u;
 				uint num5 = BitConverter.ToUInt32(baDataToDecrypt, i * 8);
-				uint num6 = BitConverter.ToUInt32(baDataToDecrypt, i * 8 + 4);
+				uint num6 = BitConverter.ToUInt32(baDataToDecrypt, (i * 8) + 4);
 				for (int j = 0; j < 32; j++) {
 					num6 -= (((num5 << 4) ^ (num5 >> 5)) + num5) ^ (num4 + array2[(num4 >> 11) & 3]);
 					num4 -= 2654435769u;
 					num5 -= (((num6 << 4) ^ (num6 >> 5)) + num6) ^ (num4 + array2[num4 & 3]);
 				}
 				BitConverter.GetBytes(num5).CopyTo(array, i * 8);
-				BitConverter.GetBytes(num6).CopyTo(array, i * 8 + 4);
+				BitConverter.GetBytes(num6).CopyTo(array, (i * 8) + 4);
 			}
 			return array;
 		}

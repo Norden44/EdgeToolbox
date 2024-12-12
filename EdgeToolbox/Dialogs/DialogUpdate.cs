@@ -1,4 +1,4 @@
-﻿using DarkUI.Forms;
+using DarkUI.Forms;
 using EdgeDeviceLibrary;
 using EdgeDeviceLibrary.Communicator;
 using ProteusCommand;
@@ -11,7 +11,6 @@ using System.Windows.Forms;
 
 namespace EdgeToolbox {
     public partial class DialogUpdate : DarkDialog {
-
         Proteus p;
 		bool HasErasedExternalFlash;
 		private DeviceConnector.ProgressReportEventHandler _progressHandler;

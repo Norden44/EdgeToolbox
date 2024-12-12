@@ -1,4 +1,4 @@
-﻿using Common;
+using Common;
 using DarkUI.Controls;
 using DarkUI.Docking;
 using DarkUI.Forms;
@@ -41,14 +41,12 @@ namespace EdgeToolbox {
 			}
 		}
 		public class FileSystemInfo {
-
 			public string Dir;
 			public string[] Files;
 			public FileSystemInfo(string Dir, string[] Files) {
 				this.Dir = Dir;
 				this.Files = Files;
 			}
-
 		}
 
 		Proteus p;
